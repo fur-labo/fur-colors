@@ -1,16 +1,16 @@
 /**
  * Color data module.
- * @module fur-colos/lib/colos
+ * @module fur-colors/lib/colors
  */
 
 
 {{#each themes}}
 /**
  * @function {{theme}}
- * @retusn {buffer} - data for theme "{{theme}}".
+ * @returns {string[]} - data for theme "{{theme}}".
  */
 exports.{{theme}} = function {{theme}}() {
-    return {{{json colors}}};
+    return [{{{colors}}}];
 };
 
 

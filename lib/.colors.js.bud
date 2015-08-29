@@ -6,15 +6,61 @@
 
 
 var onecolor = require('onecolor'),
+    util = require('util'),
+    arrayreduce = require('arrayreduce'),
     ColorScheme = require('color-scheme'),
     _themeName = require('./_theme_name');
+
+
+var COLOR_COUNT = 26;
+
+function _colors(hue) {
+    return new ColorScheme()
+        .from_hue(hue)
+        .scheme('mono')
+        .variation('default')
+        .colors()
+        .map(function (color) {
+            return '#' + color;
+        })
+}
+
+function _hues(count) {
+    var hues = [];
+    for (var i = 0; i < count; i++) {
+        hues.push((360 / count) * i);
+    }
+    return hues;
+}
+
+function _isDark(value) {
+    var color = onecolor(value),
+        red = color.red() * 255,
+        green = color.green() * 255,
+        blue = color.blue() * 255;
+    return red * 0.299 + green * 0.587 + blue * 0.114 > 186;
+}
 
 module.exports = {
     force: true,
     mode: '444',
     data: {
-        get examples() {
-
+        get themes() {
+            return _hues(COLOR_COUNT)
+                .map(function (hue) {
+                    return _colors(hue).slice(0, 4);
+                })
+                .reduce(arrayreduce.arrayConcat(), [])
+                .map(function (textColor, i) {
+                    var theme = _themeName(i);
+                    var bgColor = _isDark(textColor) ? '#FFF' : onecolor(textColor).lightness(0.1).hex();
+                    return {
+                        theme: theme,
+                        colors: [textColor, bgColor].map(function (value) {
+                            return util.format("'%s'", value);
+                        }).join(', ')
+                    }
+                });
         }
     }
 };
