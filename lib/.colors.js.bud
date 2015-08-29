@@ -38,7 +38,7 @@ function _isDark(value) {
         red = color.red() * 255,
         green = color.green() * 255,
         blue = color.blue() * 255;
-    return red * 0.299 + green * 0.587 + blue * 0.114 > 186;
+    return red * 0.299 + green * 0.587 + blue * 0.114 < 186;
 }
 
 module.exports = {
