@@ -1,0 +1,24 @@
+/**
+ * Bud file for colors.
+ */
+
+"use strict";
+
+
+var onecolor = require('onecolor'),
+    ColorScheme = require('color-scheme'),
+    _themeName = require('./_theme_name');
+
+module.exports = {
+    force: true,
+    mode: '444',
+    data: {
+        get examples() {
+
+        }
+    }
+};
+
+if (!module.parent) {
+    require('coz').render(__filename);
+}
