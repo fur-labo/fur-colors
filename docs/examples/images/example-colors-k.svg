@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="color-theme-k" xmlns="http://www.w3.org/2000/svg" width="512" height="256" viewbox="0 0 512 256">
+<svg id="color-theme-k" xmlns="http://www.w3.org/2000/svg" width="1024" height="256" viewbox="0 0 1024 256">
 	<rect x="0" y="0" width="256" height="256" fill="#331300"/>
 	<rect x="256" y="0" width="256" height="256" fill="#ffd7bf"/>
 	<text fill="#ffd7bf" x="128" y="128" dominant-baseline="central" text-anchor="middle" font-size="64"><![CDATA[normal]]></text>

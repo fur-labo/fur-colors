@@ -9,6 +9,7 @@
 var path = require('path'),
     async = require('async'),
     fs = require('fs'),
+    coz = require('coz'),
     apeTasking = require('ape-tasking'),
     expandglob = require('expandglob'),
     writexml = require('writexml'),
@@ -21,10 +22,17 @@ process.chdir(basedir);
 var exampleImageDir = path.resolve(basedir, 'docs/examples/images');
 
 apeTasking.runTasks([
+    function renderBud(callback) {
+        coz.render([
+            '.*.bud',
+            'lib/.*.bud',
+            'test/.*.bud'
+        ], callback);
+    },
     function renderSvg(callback) {
         var themes = Object.keys(furColors);
         var size = 256;
-        var w = size * 2,
+        var w = size * 4,
             h = size;
         async.eachSeries(themes, function (theme, callback) {
             var colors = furColors[theme]();
@@ -57,6 +65,8 @@ apeTasking.runTasks([
                             fill: colors[0]
                         }
                     }
+
+
                 ],
                 text: [
                     {

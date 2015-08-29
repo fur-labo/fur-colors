@@ -1,6 +1,6 @@
 {
   "name": "fur-colors",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Colors for fur.",
   "main": "index.js",
   "scripts": {
