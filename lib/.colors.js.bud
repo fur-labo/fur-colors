@@ -5,7 +5,7 @@
 "use strict";
 
 
-var onecolor = require('onecolor'),
+var h = require('../helper'),
     util = require('util'),
     arrayreduce = require('arrayreduce'),
     ColorScheme = require('color-scheme'),
@@ -33,16 +33,6 @@ function _hues(count) {
     return hues;
 }
 
-function _isDark(color) {
-    var red = color.red() * 255,
-        green = color.green() * 255,
-        blue = color.blue() * 255;
-    return red * 0.299 + green * 0.587 + blue * 0.114 < 186;
-}
-
-function _bgColor(color, isDark) {
-    return isDark ? '#FFF' : onecolor(color).lightness(0.1).hex();
-}
 
 module.exports = {
     force: true,
@@ -56,16 +46,11 @@ module.exports = {
                 .reduce(arrayreduce.arrayConcat(), [])
                 .map(function (base, i) {
                     var theme = _themeName(i);
-                    var color = onecolor(base),
-                        isDark = _isDark(color);
                     return {
                         theme: theme,
-                        colors: [
-                            base,
-                            _bgColor(color, isDark)
-                        ].map(function (value) {
-                                return util.format("'%s'", value);
-                            }).join(', ')
+                        colors: h.scheme(base).map(function (value) {
+                            return util.format("'%s'", value);
+                        }).join(', ')
                     }
                 });
         }
