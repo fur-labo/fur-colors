@@ -1,13 +1,13 @@
 {
   "name": "fur-colors",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Colors for fur.",
   "main": "lib",
   "scripts": {
     "test": "./ci/test.js",
     "prepublish": "./ci/build.js"
   },
-  "repository": "fur-repo/fur-colors",
+  "repository": "fur-labo/fur-colors",
   "author": {
     "name": "Taka Okunishi",
     "url": "http://okunishitaka.com"
@@ -18,16 +18,14 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fur-repo/fur-colors/issues"
+    "url": "https://github.com/fur-labo/fur-colors/issues"
   },
-  "homepage": "https://github.com/fur-repo/fur-colors#readme",
+  "homepage": "https://github.com/fur-labo/fur-colors#readme",
   "dependencies": {
-    "argx": "^2.0.2",
     "arrayreduce": "^2.1.0",
     "color-scheme": "0.0.5",
     "onecolor": "^3.0.4",
-    "stringcase": "^3.0.1",
-    "writexml": "^2.0.0"
+    "stringcase": "^3.0.1"
   },
   "devDependencies": {
     "ape-covering": "^3.0.3",

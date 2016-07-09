@@ -5,7 +5,6 @@
 'use strict'
 
 const h = require('../helper')
-const util = require('util')
 const arrayreduce = require('arrayreduce')
 const ColorScheme = require('color-scheme')
 const _themeName = require('./_theme_name')
