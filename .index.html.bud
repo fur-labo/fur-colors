@@ -2,22 +2,21 @@
  * Bud file for index.html
  */
 
-"use strict";
+'use strict'
 
-var furColors = require('./lib');
+const furColors = require('./lib')
 module.exports = {
-    force: true,
-    mode: '444',
-    data: {
-        pkg: require('./package.json'),
-        get examples() {
-
-            return Object.keys(furColors).map(function (theme) {
-                return {
-                    colors: furColors[theme](),
-                    theme: theme
-                };
-            })
+  force: true,
+  mode: '444',
+  data: {
+    pkg: require('./package.json'),
+    get examples () {
+      return Object.keys(furColors).map((theme) => {
+        return {
+          colors: furColors[ theme ](),
+          theme: theme
         }
+      })
     }
-};
+  }
+}

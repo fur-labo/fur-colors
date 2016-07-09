@@ -2,61 +2,54 @@
  * Bud file for colors.
  */
 
-"use strict";
+'use strict'
 
+const h = require('../helper')
+const util = require('util')
+const arrayreduce = require('arrayreduce')
+const ColorScheme = require('color-scheme')
+const _themeName = require('./_theme_name')
 
-var h = require('../helper'),
-    util = require('util'),
-    arrayreduce = require('arrayreduce'),
-    ColorScheme = require('color-scheme'),
-    _themeName = require('./_theme_name');
+const COLOR_COUNT = 26
 
-
-var COLOR_COUNT = 26;
-
-function _colors(hue) {
-    return new ColorScheme()
-        .from_hue(hue)
-        .scheme('mono')
-        .variation('default')
-        .colors()
-        .map(function (color) {
-            return '#' + color;
-        })
+function _colors (hue) {
+  return new ColorScheme()
+    .from_hue(hue)
+    .scheme('mono')
+    .variation('default')
+    .colors()
+    .map(function (color) {
+      return '#' + color;
+    })
 }
 
-function _hues(count) {
-    var hues = [];
-    for (var i = 0; i < count; i++) {
-        hues.push((360 / count) * i);
-    }
-    return hues;
+function _hues (count) {
+  var hues = [];
+  for (var i = 0; i < count; i++) {
+    hues.push((360 / count) * i);
+  }
+  return hues;
 }
-
 
 module.exports = {
-    force: true,
-    mode: '444',
-    data: {
-        get themes() {
-            return _hues(COLOR_COUNT)
-                .map(function (hue) {
-                    return _colors(hue).slice(0, 4);
-                })
-                .reduce(arrayreduce.arrayConcat(), [])
-                .map(function (base, i) {
-                    var theme = _themeName(i);
-                    return {
-                        theme: theme,
-                        colors: h.scheme(base).map(function (value) {
-                            return util.format("'%s'", value);
-                        }).join(', ')
-                    }
-                });
-        }
+  force: true,
+  mode: '444',
+  data: {
+    get themes () {
+      return _hues(COLOR_COUNT)
+        .map((hue) => _colors(hue).slice(0, 4))
+        .reduce(arrayreduce.arrayConcat(), [])
+        .map((base, i) => {
+          let theme = _themeName(i);
+          return {
+            theme: theme,
+            colors: h.scheme(base).map((value) => `'${value}'`).join(', ')
+          }
+        });
     }
+  }
 };
 
 if (!module.parent) {
-    require('coz').render(__filename);
+  require('coz').render(__filename);
 }

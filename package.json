@@ -1,18 +1,13 @@
 {
   "name": "fur-colors",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Colors for fur.",
   "main": "lib",
   "scripts": {
-    "build": "./ci/build.js",
     "test": "./ci/test.js",
-    "cover": "./ci/cover.js",
-    "report": "./ci/report.js"
+    "prepublish": "./ci/build.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fur-repo/fur-colors.git"
-  },
+  "repository": "fur-repo/fur-colors",
   "author": {
     "name": "Taka Okunishi",
     "url": "http://okunishitaka.com"
@@ -26,30 +21,30 @@
     "url": "https://github.com/fur-repo/fur-colors/issues"
   },
   "homepage": "https://github.com/fur-repo/fur-colors#readme",
-  "devDependencies": {
-    "ape-covering": "^1.0.8",
-    "ape-deploying": "^1.0.8",
-    "ape-releasing": "^1.0.14",
-    "ape-reporting": "^1.0.8",
-    "ape-tasking": "^1.0.6",
-    "ape-testing": "^1.3.2",
-    "ape-tmpl": "^1.0.9",
-    "ape-updating": "^1.0.1",
-    "async": "^1.4.2",
-    "coz": "^3.0.12",
-    "coz-tmpl": "^1.0.3",
-    "expandglob": "^1.0.0",
-    "filecopy": "^1.0.5",
-    "mkdirp": "^0.5.1",
-    "svgpng": "^1.0.1",
-    "writexml": "^1.1.0"
-  },
   "dependencies": {
-    "argx": "^1.1.6",
-    "arrayreduce": "^1.0.2",
+    "argx": "^2.0.2",
+    "arrayreduce": "^2.1.0",
     "color-scheme": "0.0.5",
-    "onecolor": "^2.5.0",
-    "stringcase": "^1.2.5",
-    "writexml": "^1.1.0"
+    "onecolor": "^3.0.4",
+    "stringcase": "^3.0.1",
+    "writexml": "^2.0.0"
+  },
+  "devDependencies": {
+    "ape-covering": "^3.0.3",
+    "ape-deploying": "^5.0.2",
+    "ape-releasing": "^4.0.1",
+    "ape-reporting": "^3.0.1",
+    "ape-tasking": "^4.0.3",
+    "ape-testing": "^4.0.0",
+    "ape-tmpl": "^5.0.11",
+    "ape-updating": "^4.0.4",
+    "async": "^1.5.2",
+    "coz": "^6.0.3",
+    "coz-tmpl": "^1.2.1",
+    "expandglob": "^3.0.2",
+    "filecopy": "^2.0.0",
+    "mkdirp": "^0.5.1",
+    "svgpng": "^2.0.0",
+    "writexml": "^2.0.0"
   }
 }

@@ -1,22 +1,17 @@
 /**
  * Test case for colors.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
+'use strict'
 
-var colors = require('../lib/colors.js');
+const colors = require('../lib/colors.js')
+const assert = require('assert')
 
-exports.setUp = function (done) {
-    done();
-};
+it('Colors', (done) => {
+  Object.keys(colors).forEach((key) => {
+    assert.ok(colors[ key ]())
+  })
+  done()
+})
 
-exports.tearDown = function (done) {
-    done();
-};
-
-exports['Colors'] = function (test) {
-    Object.keys(colors).forEach(function (key) {
-        test.ok(colors[key]());
-    });
-    test.done();
-};
-
+/* global it */
