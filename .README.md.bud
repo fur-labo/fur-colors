@@ -9,7 +9,7 @@ const pkg = require('./package.json');
 
 module.exports = apeTmpl.readmeMdBud({
   pkg: pkg,
-  repo: 'fur-repo/' + pkg.name,
+  repo: pkg.repository,
   sections: 'doc/guides/*.md.hbs',
   badges: {
     travis: true,
@@ -22,7 +22,7 @@ module.exports = apeTmpl.readmeMdBud({
   overview: 'doc/overview.md',
   vars: {
     get examples () {
-      return Object.keys(require('./lib')).map(function (theme) {
+      return Object.keys(require('./lib')).map((theme) => {
         return {
           theme: theme
         };
