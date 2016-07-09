@@ -7,7 +7,7 @@
 const h = require('../helper')
 const arrayreduce = require('arrayreduce')
 const ColorScheme = require('color-scheme')
-const _themeName = require('./_theme_name')
+const alnum = require('alnum')
 
 const COLOR_COUNT = 26
 
@@ -39,7 +39,7 @@ module.exports = {
         .map((hue) => _colors(hue).slice(0, 4))
         .reduce(arrayreduce.arrayConcat(), [])
         .map((base, i) => {
-          let theme = _themeName(i);
+          let theme = alnum.asString(i + 1)
           return {
             theme: theme,
             colors: h.scheme(base).map((value) => `'${value}'`).join(', ')
